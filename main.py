@@ -40,6 +40,12 @@ class Window(tk.Tk):
         self.button2 = tk.Button(self, text='Morse to ASCII', command=self.translate_to_ascii)
         self.button2.place(relx=0.5, rely=0.5, width=110, height=30)
 
+        self.button_3 = tk.Button(self, text='Clear', command=self.clear_text)
+        self.button_3.place(relx=0.1, rely=0.4, width=110, height=30)
+
+    def clear_text(self):
+        self.input_box.delete('0', tk.END)
+
     def translate_to_morse(self):
         self.user_entry = self.input_box.get()
         pyperclip.copy(translator.text_to_morse(self.user_entry))
